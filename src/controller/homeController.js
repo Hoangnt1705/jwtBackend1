@@ -22,6 +22,14 @@ class homeController {
         await userService.deleteUser(req.params.id);
         return res.redirect("/user")
     }
+    getUpdateUserPage = async (req, res) => {
+        let id = req.params.id;
+        let user = await userService.getUserById(id)
+        console.log(">>> check user", user)
+
+
+        return res.render("user-update.ejs")
+    }
 }
 
 export default new homeController
