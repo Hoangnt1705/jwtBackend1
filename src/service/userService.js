@@ -45,7 +45,7 @@ class userService {
         }
 
     }
-    getUserById = async ()=>{
+    getUserById = async (id) => {
         try {
             const [rows, fields] = await connection.execute('Select * FROM users WHERE id= ?', [id]);
             return rows;
@@ -53,16 +53,13 @@ class userService {
             console.log(">>> check error:", error);
         }
     }
-    // getUserById = async (id) => {
-    //     try {
-    //         // const [rows, fields] = await connection.execute('Select * from users');
-    //         const [rows, fields] = await connection.execute('Select * FROM users WHERE id= ?', [id]);
-    //         // console.log(">>> check delete:", rows);
-    //         return rows;
-    //     } catch (error) {
-    //         console.log(">>> check error:", error);
-    //     }
-
-    // }
+    updateUserInfor = async (email, username, id) => {
+        try {
+            const [rows, fields] = await connection.execute('UPDATE users SET email = ?, username = ? WHERE id = ?', [email, username, id]);
+            return rows;
+        } catch (error) {
+            console.log(">>> check error:", error);
+        }
+    }
 }
 export default new userService;

@@ -57,18 +57,24 @@
         <tbody>
           <% userList.forEach(function(item,index){ %>
             <tr>
-              <th scope="row"><%=item.id%></th>
-              <td><%=item.email %></td>
-              <td><%=item.username %></td>
+              <th scope="row">
+                <%=item.id%>
+              </th>
               <td>
-                <form style="display: inline;" action="/update-user/<%=item.id %>" method="POST">
-                  <button class="btn btn-warning">Edit</button>
-                </form>
+                <%=item.email %>
+              </td>
+              <td>
+                <%=item.username %>
+              </td>
+              <td>
+                <a class="btn btn-warning" href="/update-user/<%=item.id %>">
+                  Edit
+                </a>
                 <form style="display: inline;" action="/delete-user/<%=item.id %>" method="POST">
-                <button type="submit" class="btn btn-danger">
-                  Delete
-                </button>
-              </form>
+                  <button type="submit" class="btn btn-danger">
+                    Delete
+                  </button>
+                </form>
               </td>
             </tr>
             <% }) %>

@@ -18,21 +18,20 @@
 
     <div class="container">
         <div class="edit-user-infor-container">
-            <form method="POST" action="/users/update-ud">
+            <form method="POST" action="/users/update-user">
                 <div class="mt-3 mb-3">
                     <h3>Update a new user:</h3>
+                    <input hidden value="<%=userData.id %>" name="id" />
                 </div>
                 <div class="mb-3 col-6">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input value="<%=userData.email %>" type="email" class="form-control" id="email" name="email"
+                        required>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <input value="<%=userData.username %>" type="text" class="form-control" id="username"
+                        name="username" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>
