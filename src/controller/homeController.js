@@ -1,5 +1,5 @@
 import userService from '../service/userService.js'
-class homeController {
+ class homeController {
 
     handleHelloworld = (req, res) => {
         let name1 = "aaaaa";
@@ -46,3 +46,16 @@ class homeController {
 
 export default new homeController
 
+
+
+// import routes from routes
+
+//export (exports nhieu bien )
+//c1:
+//export {a}
+//c2
+// export let a = 0;
+
+// const routes = require('routes');
+// export.ten_bien
+// module.exports = tenbien;

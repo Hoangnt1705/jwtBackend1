@@ -1,9 +1,14 @@
 'use strict';
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config();
+}
+import fs from'fs';
+import path from'path';
+import Sequelize from'sequelize';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const basename = path.basename(__filename);
+const __dirname = path.dirname(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../../config/config.json')[env];
 const db = {};
@@ -24,7 +29,7 @@ fs
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
-
+  
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
@@ -33,5 +38,4 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
-module.exports = db;
+export default db;
