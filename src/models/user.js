@@ -1,6 +1,6 @@
 'use strict';
-import Model from'sequelize';
-export default (sequelize, DataTypes) => {
+import {Model} from'sequelize';
+module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
      * Helper method for defining associations.
@@ -11,9 +11,7 @@ export default (sequelize, DataTypes) => {
       // define association here
     }
   };
-
   //object relational mapping
-  
   User.init({
     email: DataTypes.STRING,
     password: DataTypes.STRING,

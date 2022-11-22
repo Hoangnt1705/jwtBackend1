@@ -5,7 +5,8 @@ if (process.env.NODE_ENV === 'development') {
   require('dotenv').config();
 }
 import bodyParser from "body-parser";
-// import connection from "./config/connectDB.js";
+
+import connection from "./config/connectDB.js";
 const app = express();
 const PORT = process.env.PORT || 8080;
 //config view engine
@@ -14,7 +15,7 @@ configViewEngine(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //test connection 
-// connection();
+connection();
 // init web router
 initWebRoutes(app);
 
